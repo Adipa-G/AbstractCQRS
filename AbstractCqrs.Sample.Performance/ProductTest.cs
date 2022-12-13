@@ -31,7 +31,7 @@ namespace AbstractCqrs.Sample.Performance.PerformanceTest
             var client = new HttpClient();
             var random = new Random();
 
-            for (var i = 0; i < 100000; i++)
+            for (var i = 0; i < 100; i++)
             {
                 var sameRepeat = random.Next(1, 10);
                 var id = Guid.NewGuid();
