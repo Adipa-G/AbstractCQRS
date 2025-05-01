@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+
 using AbstractCqrs.Sample.Domain.Order.Commands;
 using AbstractCqrs.Sample.Domain.Order.Commands.Handlers;
 using AbstractCqrs.Sample.Domain.Order.Events;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Sample.Domain.Order.Test.Commands.Handlers
@@ -28,7 +30,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Test.Commands.Handlers
         [Test]
         public void GivenDeletedOrder_WhenHandleCommand_ThenThrowException()
         {
-            var root = new Order {Id = Guid.NewGuid(), IsDeleted = true};
+            var root = new Order { Id = Guid.NewGuid(), IsDeleted = true };
             var cmd =
                 new UpdateOrderCommand(Guid.NewGuid(), "test", 10);
 
@@ -60,7 +62,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Test.Commands.Handlers
             Assert.AreEqual(cmd.CustomerNotes, evt.CustomerNotes);
             Assert.AreEqual(cmd.Discount, evt.Discount);
         }
-        
+
         private UpdateOrderCommandHandler CreateSut()
         {
             return new UpdateOrderCommandHandler();

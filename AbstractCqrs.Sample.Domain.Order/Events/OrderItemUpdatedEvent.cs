@@ -25,7 +25,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Events
         public string ProductText { get; set; }
 
         public int Qty { get; set; }
-        
+
         public double Amount { get; set; }
     }
 }

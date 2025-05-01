@@ -2,7 +2,9 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading;
+
 using AbstractCqrs.Sample.Domain.Order.Model;
+
 using Newtonsoft.Json;
 
 namespace AbstractCqrs.Sample.Performance.PerformanceTest
@@ -45,14 +47,14 @@ namespace AbstractCqrs.Sample.Performance.PerformanceTest
                     }
 
                     var order = new OrderModel()
-                                  {
-                                      Id = id,
-                                      CustomerNotes =
+                    {
+                        Id = id,
+                        CustomerNotes =
                                           "Cust Note " + i + "_" + j,
-                                      OrderNo = i + "_" + j,
-                                      Discount = i,
-                                      Total = i
-                                  };
+                        OrderNo = i + "_" + j,
+                        Discount = i,
+                        Total = i
+                    };
 
                     if (j == 0)
                     {
@@ -90,7 +92,7 @@ namespace AbstractCqrs.Sample.Performance.PerformanceTest
             }
         }
 
-        private void AddOrderItems(HttpClient client,Random random,Guid orderId)
+        private void AddOrderItems(HttpClient client, Random random, Guid orderId)
         {
             var count = random.Next(1, 10);
             for (int i = 0; i < count; i++)
@@ -108,15 +110,15 @@ namespace AbstractCqrs.Sample.Performance.PerformanceTest
                     }
 
                     var orderItem = new OrderItemModel()
-                                {
-                                    Id = id,
-                                    Amount = i * j,
-                                    Ordinal = i,
-                                    ProductText = "Product " +  productId,
-                                    Qty = i,
-                                    QtyUnit = "j_" + "Kg",
-                                    ProductId = productId
-                                };
+                    {
+                        Id = id,
+                        Amount = i * j,
+                        Ordinal = i,
+                        ProductText = "Product " + productId,
+                        Qty = i,
+                        QtyUnit = "j_" + "Kg",
+                        ProductId = productId
+                    };
 
                     if (j == 0)
                     {

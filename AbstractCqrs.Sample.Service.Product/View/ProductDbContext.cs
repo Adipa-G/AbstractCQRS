@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Sample.Domain.Product.Model;
 using AbstractCqrs.Sample.Domain.Product.View;
 using AbstractCqrs.Sample.Service.Product.View.Mappings;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace AbstractCqrs.Sample.Service.Product.View
@@ -17,7 +19,7 @@ namespace AbstractCqrs.Sample.Service.Product.View
                 .FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
             return Convert(product);
         }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             builder.UseSqlServer(Config.ConnectionString);
@@ -37,12 +39,12 @@ namespace AbstractCqrs.Sample.Service.Product.View
                 return null;
 
             return new ProductModel
-                   {
-                       Id = product.Id,
-                       UnitPrice = product.UnitPrice,
-                       Code = product.Code,
-                       Name = product.Name
-                   };
+            {
+                Id = product.Id,
+                UnitPrice = product.UnitPrice,
+                Code = product.Code,
+                Name = product.Name
+            };
         }
     }
 }

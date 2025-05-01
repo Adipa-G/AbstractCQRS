@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+
 using AbstractCqrs.Sample.Domain.Product.Commands;
 using AbstractCqrs.Sample.Domain.Product.Commands.Handlers;
 using AbstractCqrs.Sample.Domain.Product.Events;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Sample.Domain.Product.Test.Commands.Handlers
@@ -57,7 +59,7 @@ namespace AbstractCqrs.Sample.Domain.Product.Test.Commands.Handlers
             Assert.IsNotNull(evt);
             Assert.AreEqual(root.Id, evt.RootId);
         }
-        
+
         private DeleteProductCommandHandler CreateSut()
         {
             return new DeleteProductCommandHandler();

@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Core.View;
 using AbstractCqrs.Sample.Service.Product.View;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace AbstractCqrs.Sample.WebApi.Product
@@ -25,7 +27,7 @@ namespace AbstractCqrs.Sample.WebApi.Product
                 }
 
                 await context.Set<Domain.Product.Product>()
-                    .AddAsync((Domain.Product.Product) root);
+                    .AddAsync((Domain.Product.Product)root);
                 await context.SaveChangesAsync();
             }
         }

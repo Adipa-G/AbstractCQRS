@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+
 using Microsoft.Extensions.Configuration;
+
 using Serilog.Events;
 
 namespace AbstractCqrs.Sample.Service
@@ -36,7 +38,7 @@ namespace AbstractCqrs.Sample.Service
             get
             {
                 Init();
-                return (LogEventLevel) Enum.Parse(typeof(LogEventLevel),
+                return (LogEventLevel)Enum.Parse(typeof(LogEventLevel),
                     configuration[LogLevelKey]);
             }
         }

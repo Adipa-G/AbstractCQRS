@@ -5,12 +5,12 @@ namespace AbstractCqrs.Sample.Domain.Order.Commands
     public class AddOrderItemCommand : BaseCommand
     {
         public AddOrderItemCommand(Guid rootId,
-            Guid orderItemId, 
-            int ordinal, 
+            Guid orderItemId,
+            int ordinal,
             Guid productId,
             string productText,
-            int qty, 
-            string qtyUnit, 
+            int qty,
+            string qtyUnit,
             double amount) : base(rootId)
         {
             OrderItemId = orderItemId;

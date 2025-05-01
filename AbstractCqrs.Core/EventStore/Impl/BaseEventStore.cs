@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Domain;
 
 namespace AbstractCqrs.Core.EventStore.Impl

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Command.Impl;
 using AbstractCqrs.Core.Domain;
@@ -9,7 +10,9 @@ using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Core.Services;
 using AbstractCqrs.Core.Test.TestData;
 using AbstractCqrs.Core.View;
+
 using NSubstitute;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Core.Test.Command
@@ -42,7 +45,7 @@ namespace AbstractCqrs.Core.Test.Command
 
             scope = Substitute.For<IScope>();
             serviceLocator.CreateScope().Returns(scope);
-            
+
 
             rootTypeResolver.GetRootType(Arg.Any<CreateAccountCommand>())
                 .Returns(typeof(Account));
@@ -62,17 +65,17 @@ namespace AbstractCqrs.Core.Test.Command
                 .ResolveEventHandler<Account, AccountBalanceUpdatedEvent>()
                 .Returns(new AccountBalanceUpdatedEventHandler());
         }
-        
+
         [Test]
         public void GivenCommand_WhenProcess_ThenGenerateEvents()
         {
             var rootId = Guid.NewGuid();
 
             var cmd = new UpdateAccountBalanceCommand
-                      {
-                          RootId = rootId,
-                          Change = 10
-                      };
+            {
+                RootId = rootId,
+                Change = 10
+            };
 
             eventStore.GetRootType(rootId).Returns(typeof(Account));
 
@@ -110,7 +113,7 @@ namespace AbstractCqrs.Core.Test.Command
             Account account = null;
 
             var events = new List<IEvent<Account>>();
-            events.Add(new AccountCreatedEvent {RootId = rootId});
+            events.Add(new AccountCreatedEvent { RootId = rootId });
             events.Add(
                 new AccountBalanceUpdatedEvent
                 {
@@ -126,10 +129,10 @@ namespace AbstractCqrs.Core.Test.Command
                 .Do(r => account = r.Arg<Account>());
 
             var cmd = new UpdateAccountBalanceCommand
-                      {
-                          RootId = rootId,
-                          Change = 5
-                      };
+            {
+                RootId = rootId,
+                Change = 5
+            };
 
             var sut = CreateSut();
             sut.Process(cmd);
@@ -149,7 +152,7 @@ namespace AbstractCqrs.Core.Test.Command
         {
             scope
                 .ResolveCommandHandler<Account, CreateAccountCommand>()
-                .Returns((ICommandHandler<Account, CreateAccountCommand>) null);
+                .Returns((ICommandHandler<Account, CreateAccountCommand>)null);
 
             var sut = CreateSut();
 

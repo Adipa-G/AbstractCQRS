@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Sample.Domain.Order.Events;
@@ -9,7 +10,7 @@ using AbstractCqrs.Sample.Domain.Order.Events;
 namespace AbstractCqrs.Sample.Domain.Order.Commands.Handlers
 {
     public class
-        RemoveOrderItemCommandHandler : ICommandHandler<Order,RemoveOrderItemCommand>
+        RemoveOrderItemCommandHandler : ICommandHandler<Order, RemoveOrderItemCommand>
     {
         public Task<IList<IEvent<Order>>> Handle(Order root,
             RemoveOrderItemCommand cmd)
@@ -31,7 +32,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Commands.Handlers
                 throw new DomainException($"Order {root.Id} is deleted.");
             }
 
-            list.Add(new OrderItemRemovedEvent(cmd.RootId,cmd.OrderItemId));
+            list.Add(new OrderItemRemovedEvent(cmd.RootId, cmd.OrderItemId));
             return Task.FromResult(list);
         }
     }

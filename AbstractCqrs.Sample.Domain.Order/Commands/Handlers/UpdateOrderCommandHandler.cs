@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Sample.Domain.Order.Events;

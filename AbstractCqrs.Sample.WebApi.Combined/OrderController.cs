@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Sample.Domain.Order.Commands;
 using AbstractCqrs.Sample.Domain.Order.Model;
 using AbstractCqrs.Sample.Domain.Order.View;
 using AbstractCqrs.Sample.Service.Order;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace AbstractCqrs.Sample.WebApi.Combined
@@ -77,7 +79,7 @@ namespace AbstractCqrs.Sample.WebApi.Combined
         }
 
         [HttpPut("item/{id}/{itemId}")]
-        public async Task<IActionResult> UpdateItem(Guid id,Guid itemId, [FromBody] OrderItemModel model)
+        public async Task<IActionResult> UpdateItem(Guid id, Guid itemId, [FromBody] OrderItemModel model)
         {
             model.Id = itemId;
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Domain;
 

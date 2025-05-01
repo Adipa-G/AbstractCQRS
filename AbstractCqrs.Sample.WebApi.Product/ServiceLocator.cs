@@ -1,6 +1,8 @@
 ﻿using System;
+
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Sample.Service.Resolve;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AbstractCqrs.Sample.WebApi.Product

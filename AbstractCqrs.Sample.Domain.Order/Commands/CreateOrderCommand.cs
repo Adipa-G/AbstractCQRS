@@ -11,7 +11,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Commands
         public double Discount { get; set; }
 
         public CreateOrderCommand(Guid rootId,
-            string customerNotes, 
+            string customerNotes,
             string orderNo,
             double discount) : base(rootId)
         {

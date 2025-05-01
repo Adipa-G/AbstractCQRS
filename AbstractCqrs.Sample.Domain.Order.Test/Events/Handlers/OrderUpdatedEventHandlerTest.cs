@@ -1,6 +1,8 @@
 ﻿using System;
+
 using AbstractCqrs.Sample.Domain.Order.Events;
 using AbstractCqrs.Sample.Domain.Order.Events.Handlers;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Sample.Domain.Order.Test.Events.Handlers
@@ -11,8 +13,8 @@ namespace AbstractCqrs.Sample.Domain.Order.Test.Events.Handlers
         [Test]
         public void GivenOrderAndEvent_WhenApply_ThenUpdateOrder()
         {
-            var root = new Order {Id = Guid.NewGuid()};
-            var orderItem = new OrderItem {Amount = 100};
+            var root = new Order { Id = Guid.NewGuid() };
+            var orderItem = new OrderItem { Amount = 100 };
             root.Items.Add(orderItem);
 
             var evt = new OrderUpdatedEvent(root.Id, "A", 10);

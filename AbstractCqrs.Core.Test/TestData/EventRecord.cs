@@ -1,4 +1,5 @@
 ﻿using System;
+
 using AbstractCqrs.Core.EventStore;
 
 namespace AbstractCqrs.Core.Test.TestData

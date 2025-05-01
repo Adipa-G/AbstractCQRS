@@ -1,6 +1,8 @@
 ﻿using System;
+
 using AbstractCqrs.Sample.Domain.Order.Events;
 using AbstractCqrs.Sample.Domain.Order.Events.Handlers;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Sample.Domain.Order.Test.Events.Handlers
@@ -11,7 +13,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Test.Events.Handlers
         [Test]
         public void GivenOrderAndEvent_WhenApply_ThenDeleteOrder()
         {
-            var root = new Order {Id = Guid.NewGuid()};
+            var root = new Order { Id = Guid.NewGuid() };
 
             var evt = new OrderDeletedEvent(root.Id);
 

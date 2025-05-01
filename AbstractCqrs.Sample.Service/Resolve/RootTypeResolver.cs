@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Core.Resolve.Helpers;

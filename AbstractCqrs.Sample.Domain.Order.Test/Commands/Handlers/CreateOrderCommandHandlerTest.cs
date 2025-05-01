@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+
 using AbstractCqrs.Sample.Domain.Order.Commands;
 using AbstractCqrs.Sample.Domain.Order.Commands.Handlers;
 using AbstractCqrs.Sample.Domain.Order.Events;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Sample.Domain.Order.Test.Commands.Handlers
@@ -15,7 +17,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Test.Commands.Handlers
         {
             var root = new Order { Id = Guid.NewGuid() };
             var cmd =
-                new CreateOrderCommand(root.Id,"test","1",10);
+                new CreateOrderCommand(root.Id, "test", "1", 10);
 
             var sut = CreateSut();
             var exception =
@@ -46,7 +48,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Test.Commands.Handlers
             Assert.AreEqual(cmd.OrderNo, evt.OrderNo);
             Assert.AreEqual(cmd.Discount, evt.Discount);
         }
-        
+
         private CreateOrderCommandHandler CreateSut()
         {
             return new CreateOrderCommandHandler();

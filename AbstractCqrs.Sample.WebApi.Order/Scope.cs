@@ -1,13 +1,15 @@
 ﻿using System;
+
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Sample.Service.Resolve;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AbstractCqrs.Sample.WebApi.Order
 {
     public class Scope : BaseScope
     {
-        private IServiceScope serviceScope;
+        private readonly IServiceScope serviceScope;
 
         public Scope(IServiceLocator serviceLocator, IServiceScope serviceScope) : base(serviceLocator)
         {

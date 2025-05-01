@@ -2,7 +2,9 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading;
+
 using AbstractCqrs.Sample.Domain.Product.Model;
+
 using Newtonsoft.Json;
 
 namespace AbstractCqrs.Sample.Performance.PerformanceTest
@@ -45,12 +47,12 @@ namespace AbstractCqrs.Sample.Performance.PerformanceTest
                     }
 
                     var product = new ProductModel
-                                  {
-                                      Id = id,
-                                      Code = "Code " + i,
-                                      Name = "Name " + i,
-                                      UnitPrice = i
-                                  };
+                    {
+                        Id = id,
+                        Code = "Code " + i,
+                        Name = "Name " + i,
+                        UnitPrice = i
+                    };
 
                     if (j == 0)
                     {

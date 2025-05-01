@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+
 using AbstractCqrs.Core.Exceptions;
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Core.Services;
@@ -23,7 +24,7 @@ namespace AbstractCqrs.Sample.Service.Resolve
                     $"Bus {busId} is not registered.");
             return buses[busId];
         }
-        
+
         public void Register(IBus bus)
         {
             if (buses.ContainsKey(bus.Id))

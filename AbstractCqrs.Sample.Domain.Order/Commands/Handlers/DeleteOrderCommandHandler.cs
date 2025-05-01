@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Sample.Domain.Order.Events;
@@ -8,7 +9,7 @@ using AbstractCqrs.Sample.Domain.Order.Events;
 namespace AbstractCqrs.Sample.Domain.Order.Commands.Handlers
 {
     public class
-        DeleteOrderCommandHandler : ICommandHandler<Order,DeleteOrderCommand>
+        DeleteOrderCommandHandler : ICommandHandler<Order, DeleteOrderCommand>
     {
         public Task<IList<IEvent<Order>>> Handle(Order root,
             DeleteOrderCommand cmd)

@@ -1,9 +1,11 @@
 ﻿using System.Linq;
 using System.Reflection;
+
 using AbstractCqrs.Core.EventStore;
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Core.Resolve.Helpers;
 using AbstractCqrs.Core.Test.TestData;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Core.Test.Resolve
@@ -16,7 +18,7 @@ namespace AbstractCqrs.Core.Test.Resolve
             GivenClassWithDependecyAttribute_WhenGetDependencies_ThenReturn()
         {
             var dependencies = ResolveUtils.GetDependencies(
-                new[] {typeof(ResolveUtilsTest).GetTypeInfo().Assembly});
+                new[] { typeof(ResolveUtilsTest).GetTypeInfo().Assembly });
 
             Assert.IsTrue(dependencies.Any(
                 d => d.Interface == typeof(IEventStore) &&
@@ -29,7 +31,7 @@ namespace AbstractCqrs.Core.Test.Resolve
             GivenEntityCommandAndHandler_WhenGetCommandHandlerMappings_ThenReturn()
         {
             var mappings = ResolveUtils.GetCommandHandlerMappings(
-                new[] {typeof(ResolveUtilsTest).GetTypeInfo().Assembly});
+                new[] { typeof(ResolveUtilsTest).GetTypeInfo().Assembly });
 
             Assert.IsTrue(mappings.Any(
                 m => m.EntityType == typeof(Account) &&
@@ -49,7 +51,7 @@ namespace AbstractCqrs.Core.Test.Resolve
             GivenEntityCommandAndHandler_WhenGetCommandToEntityMappings_ThenReturn()
         {
             var mappings = ResolveUtils.GetCommandToEntityMappings(
-                new[] {typeof(ResolveUtilsTest).GetTypeInfo().Assembly});
+                new[] { typeof(ResolveUtilsTest).GetTypeInfo().Assembly });
 
             Assert.AreEqual(typeof(Account),
                 mappings
@@ -68,7 +70,7 @@ namespace AbstractCqrs.Core.Test.Resolve
             GivenEntityCommandAndHandler_WhenGetEventHandlerMappings_ThenReturn()
         {
             var mappings = ResolveUtils.GetEventHandlerMappings(
-                new[] {typeof(ResolveUtilsTest).GetTypeInfo().Assembly});
+                new[] { typeof(ResolveUtilsTest).GetTypeInfo().Assembly });
 
             Assert.IsTrue(mappings.Any(
                 m => m.EntityType == typeof(Account) &&
