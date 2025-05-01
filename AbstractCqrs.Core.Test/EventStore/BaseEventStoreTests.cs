@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Core.Test.TestData;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Core.Test.EventStore

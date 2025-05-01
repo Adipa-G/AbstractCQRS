@@ -9,7 +9,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Commands
         public double Discount { get; set; }
 
         public UpdateOrderCommand(Guid rootId,
-            string customerNotes, 
+            string customerNotes,
             double discount) : base(rootId)
         {
             CustomerNotes = customerNotes;

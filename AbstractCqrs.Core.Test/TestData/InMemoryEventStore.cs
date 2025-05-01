@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Core.EventStore;
 using AbstractCqrs.Core.EventStore.Impl;
 using AbstractCqrs.Core.Resolve;
+
 using Newtonsoft.Json;
 
 namespace AbstractCqrs.Core.Test.TestData
@@ -28,19 +30,19 @@ namespace AbstractCqrs.Core.Test.TestData
         protected override string Serialize<TRoot>(IEvent<TRoot> evt)
         {
             var settings = new JsonSerializerSettings
-                           {
-                               TypeNameHandling = TypeNameHandling.All
-                           };
+            {
+                TypeNameHandling = TypeNameHandling.All
+            };
             return JsonConvert.SerializeObject(evt, settings);
         }
 
         protected override IEvent<TRoot> DeSerialize<TRoot>(string data)
         {
             var settings = new JsonSerializerSettings
-                           {
-                               TypeNameHandling = TypeNameHandling.All
-                           };
-            return (IEvent<TRoot>) JsonConvert.DeserializeObject(data,
+            {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            return (IEvent<TRoot>)JsonConvert.DeserializeObject(data,
                 settings);
         }
 

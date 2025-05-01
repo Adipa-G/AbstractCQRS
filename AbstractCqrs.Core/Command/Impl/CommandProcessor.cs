@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Core.EventStore;
 using AbstractCqrs.Core.Exceptions;
@@ -65,7 +66,7 @@ namespace AbstractCqrs.Core.Command.Impl
 
                     var commandHandler = InvokeGeneric<object>(this,
                         "ResolveCommandHandler", new[] { rootType, cmd.GetType() },
-                        new object[]{ scope});
+                        new object[] { scope });
 
                     if (commandHandler == null)
                     {
@@ -90,7 +91,7 @@ namespace AbstractCqrs.Core.Command.Impl
                         new[] { rootType }, new object[] { events });
                     logBuilder.AppendLine("\t\tSaved events");
 
-                    await ApplyEvents(scope,root, events);
+                    await ApplyEvents(scope, root, events);
                     logBuilder.AppendLine("\t\tApplied events");
 
                     await unitOfWork.Complete();
@@ -109,7 +110,7 @@ namespace AbstractCqrs.Core.Command.Impl
                     $"\tException while processing command {ex}");
                 throw;
             }
-            finally 
+            finally
             {
                 logBuilder.AppendLine($"End command {cmd.GetType().FullName} {cmd.RootId}");
                 if (error)
@@ -123,33 +124,33 @@ namespace AbstractCqrs.Core.Command.Impl
             }
         }
 
-        private async Task<IRoot> GetRoot(IScope scope,Type rootType, Guid rootId)
+        private async Task<IRoot> GetRoot(IScope scope, Type rootType, Guid rootId)
         {
-            var root = (IRoot) Activator.CreateInstance(rootType);
-            var events = (IList) await InvokeGeneric<dynamic>(this,
-                "GetEvents", new[] {rootType}, new object[] {rootId});
+            var root = (IRoot)Activator.CreateInstance(rootType);
+            var events = (IList)await InvokeGeneric<dynamic>(this,
+                "GetEvents", new[] { rootType }, new object[] { rootId });
 
             if (events.Count == 0)
-                return (IRoot) Activator.CreateInstance(rootType);
+                return (IRoot)Activator.CreateInstance(rootType);
 
-            await ApplyEvents(scope,root, events);
+            await ApplyEvents(scope, root, events);
             return root;
         }
 
-        private async Task ApplyEvents<TRoot>(IScope scope,TRoot root, IList events)
+        private async Task ApplyEvents<TRoot>(IScope scope, TRoot root, IList events)
             where TRoot : IRoot
         {
             foreach (var evt in events)
             {
                 var evtHandler = InvokeGeneric<object>(this,
                     "ResolveEventHandler",
-                    new[] {root.GetType(), evt.GetType()},
-                    new object[]{scope});
+                    new[] { root.GetType(), evt.GetType() },
+                    new object[] { scope });
                 var applyMethod = evtHandler.GetType().GetTypeInfo()
                     .GetMethod("Apply");
 
                 var task =
-                    (Task) applyMethod.Invoke(evtHandler, new[] {root, evt});
+                    (Task)applyMethod.Invoke(evtHandler, new[] { root, evt });
                 await task;
             }
         }
@@ -176,8 +177,8 @@ namespace AbstractCqrs.Core.Command.Impl
 
                 MethodCache.TryAdd(cacheKey, genericMethod);
             }
-            
-            return (T) genericMethod.Invoke(src, values);
+
+            return (T)genericMethod.Invoke(src, values);
         }
 
         private T Invoke<T>(object src,
@@ -198,7 +199,7 @@ namespace AbstractCqrs.Core.Command.Impl
                 MethodCache.TryAdd(cacheKey, method);
             }
 
-            return (T) method.Invoke(src, values);
+            return (T)method.Invoke(src, values);
         }
 
         //wrappers to make refactor safe

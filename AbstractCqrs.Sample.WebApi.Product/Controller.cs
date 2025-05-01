@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Sample.Domain.Product.Commands;
 using AbstractCqrs.Sample.Domain.Product.Model;
 using AbstractCqrs.Sample.Domain.Product.View;
 using AbstractCqrs.Sample.Service.Product;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace AbstractCqrs.Sample.WebApi.Product

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{2BE469FC-DD33-41A3-9632-A3FAD7436800}"
 EndProject
@@ -40,6 +40,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractCqrs.Sample.WebApi.Order", "AbstractCqrs.Sample.WebApi.Order\AbstractCqrs.Sample.WebApi.Order.csproj", "{4DBD2BB1-8308-49D0-BAB0-7C2465FC9D93}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractCqrs.Sample.WebApi.Combined", "AbstractCqrs.Sample.WebApi.Combined\AbstractCqrs.Sample.WebApi.Combined.csproj", "{BBE5EAE0-76AA-4ADC-8182-AC036D17B394}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

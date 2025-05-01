@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Core.View;
@@ -6,6 +7,7 @@ using AbstractCqrs.Sample.Domain.Order;
 using AbstractCqrs.Sample.Domain.Product;
 using AbstractCqrs.Sample.Service.Order.View;
 using AbstractCqrs.Sample.Service.Product.View;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace AbstractCqrs.Sample.WebApi.Combined

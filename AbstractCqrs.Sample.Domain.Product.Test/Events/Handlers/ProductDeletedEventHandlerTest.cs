@@ -1,6 +1,8 @@
 ﻿using System;
+
 using AbstractCqrs.Sample.Domain.Product.Events;
 using AbstractCqrs.Sample.Domain.Product.Events.Handlers;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Sample.Domain.Product.Test.Events.Handlers
@@ -11,7 +13,7 @@ namespace AbstractCqrs.Sample.Domain.Product.Test.Events.Handlers
         [Test]
         public void GivenProductAndEvent_WhenApply_ThenDeleteProduct()
         {
-            var root = new Product {Id = Guid.NewGuid()};
+            var root = new Product { Id = Guid.NewGuid() };
             var evt = new ProductDeletedEvent(root.Id);
 
             var sut = CreateSut();

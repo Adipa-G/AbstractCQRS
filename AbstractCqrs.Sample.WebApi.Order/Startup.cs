@@ -10,6 +10,7 @@ using AbstractCqrs.Sample.Service;
 using AbstractCqrs.Sample.Service.Log;
 using AbstractCqrs.Sample.Service.Order;
 using AbstractCqrs.Sample.Service.Order.View;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,7 +41,8 @@ namespace AbstractCqrs.Sample.WebApi.Order
             });
 
             app.UseRouting();
-            app.UseEndpoints(endpoints => {
+            app.UseEndpoints(endpoints =>
+            {
                 endpoints.MapControllers();
             });
 

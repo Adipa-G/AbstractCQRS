@@ -13,6 +13,7 @@ using AbstractCqrs.Sample.Service.Order;
 using AbstractCqrs.Sample.Service.Order.View;
 using AbstractCqrs.Sample.Service.Product;
 using AbstractCqrs.Sample.Service.Product.View;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,7 +44,8 @@ namespace AbstractCqrs.Sample.WebApi.Combined
             });
 
             app.UseRouting();
-            app.UseEndpoints(endpoints => {
+            app.UseEndpoints(endpoints =>
+            {
                 endpoints.MapControllers();
             });
 
@@ -64,7 +66,7 @@ namespace AbstractCqrs.Sample.WebApi.Combined
 
                 var productView = scope.Resolve<IProductView>() as ProductDbContext;
                 productView.Database.Migrate();
-                
+
                 var orderService = scope.Resolve<IOrderService>();
                 orderService.Init();
 

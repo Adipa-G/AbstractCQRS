@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Command;
 
 namespace AbstractCqrs.Sample.Service.Command

@@ -5,8 +5,8 @@ namespace AbstractCqrs.Sample.Domain.Order.Events
     public class OrderItemAddedEvent : BaseEvent<Order>
     {
         public OrderItemAddedEvent(Guid rootId,
-            Guid orderItemId, 
-            int ordinal, 
+            Guid orderItemId,
+            int ordinal,
             Guid productId,
             string productText,
             int qty,

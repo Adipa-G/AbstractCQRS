@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Sample.Domain.Product.Model;
 
 namespace AbstractCqrs.Sample.Domain.Product.View

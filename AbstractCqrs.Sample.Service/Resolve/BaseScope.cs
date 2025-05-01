@@ -1,4 +1,5 @@
 ﻿using System;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Core.Resolve;
@@ -8,7 +9,7 @@ namespace AbstractCqrs.Sample.Service.Resolve
 {
     public abstract class BaseScope : IScope
     {
-        private IServiceLocator serviceLocator;
+        private readonly IServiceLocator serviceLocator;
 
         protected BaseScope(IServiceLocator serviceLocator)
         {
@@ -40,7 +41,7 @@ namespace AbstractCqrs.Sample.Service.Resolve
         }
 
         public abstract void Dispose();
-        
+
         protected abstract object Resolve(Type @interface);
     }
 }

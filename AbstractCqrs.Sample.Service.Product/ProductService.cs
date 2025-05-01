@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Core.Services;
@@ -20,7 +21,7 @@ namespace AbstractCqrs.Sample.Service.Product
 
         protected override IList<string> GetSubscriptionBusIds()
         {
-            return new List<string> {Constants.BusId};
+            return new List<string> { Constants.BusId };
         }
 
         protected override Task OnCommandProcessed(ICommand cmd)

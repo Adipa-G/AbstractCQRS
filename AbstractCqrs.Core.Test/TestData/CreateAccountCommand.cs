@@ -1,4 +1,5 @@
 ﻿using System;
+
 using AbstractCqrs.Core.Command;
 
 namespace AbstractCqrs.Core.Test.TestData

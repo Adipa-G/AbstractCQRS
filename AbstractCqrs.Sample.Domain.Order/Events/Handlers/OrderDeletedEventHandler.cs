@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Domain;
 
 namespace AbstractCqrs.Sample.Domain.Order.Events.Handlers

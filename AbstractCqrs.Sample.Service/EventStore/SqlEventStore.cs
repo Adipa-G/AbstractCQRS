@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Core.EventStore;
 using AbstractCqrs.Core.EventStore.Impl;
 using AbstractCqrs.Core.Resolve;
+
 using Newtonsoft.Json;
 
 namespace AbstractCqrs.Sample.Service.EventStore

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+
 using AbstractCqrs.Sample.Domain.Product.Commands;
 using AbstractCqrs.Sample.Domain.Product.Commands.Handlers;
 using AbstractCqrs.Sample.Domain.Product.Events;
+
 using NUnit.Framework;
 
 namespace AbstractCqrs.Sample.Domain.Product.Test.Commands.Handlers
@@ -26,10 +28,10 @@ namespace AbstractCqrs.Sample.Domain.Product.Test.Commands.Handlers
 
             var evt = result.First() as ProductCreatedEvent;
             Assert.IsNotNull(evt);
-            Assert.AreEqual(cmd.RootId,evt.RootId);
-            Assert.AreEqual("X",evt.Code);
-            Assert.AreEqual("Y",evt.Name);
-            Assert.AreEqual(100,evt.UnitPrice);
+            Assert.AreEqual(cmd.RootId, evt.RootId);
+            Assert.AreEqual("X", evt.Code);
+            Assert.AreEqual("Y", evt.Name);
+            Assert.AreEqual(100, evt.UnitPrice);
         }
 
         [Test]
@@ -49,7 +51,7 @@ namespace AbstractCqrs.Sample.Domain.Product.Test.Commands.Handlers
         [Test]
         public void GivenExistingProduct_WhenHandleUpdateCommand_ThenReturnEvents()
         {
-            var root = new Product {Id = Guid.NewGuid()};
+            var root = new Product { Id = Guid.NewGuid() };
             var cmd =
                 new CreateOrUpdateProductCommand(root.Id, "X", "Y", 100);
 
@@ -67,7 +69,7 @@ namespace AbstractCqrs.Sample.Domain.Product.Test.Commands.Handlers
             Assert.AreEqual("Y", evt.Name);
             Assert.AreEqual(100, evt.UnitPrice);
         }
-        
+
         private CreateOrUpdateProductCommandHandler CreateSut()
         {
             return new CreateOrUpdateProductCommandHandler();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Sample.Domain.Product.Events;
@@ -25,7 +26,7 @@ namespace AbstractCqrs.Sample.Domain.Product.Commands.Handlers
                 {
                     throw new DomainException($"Product {cmd.RootId} is deleted.");
                 }
-                
+
                 list.Add(new ProductUpdatedEvent(cmd.RootId, cmd.Code, cmd.Name,
                     cmd.UnitPrice));
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Sample.Domain.Order.Events;
@@ -30,7 +31,7 @@ namespace AbstractCqrs.Sample.Domain.Order.Commands.Handlers
                 throw new DomainException($"Order {root.Id} is deleted.");
             }
 
-            list.Add(new OrderItemUpdatedEvent(cmd.RootId, 
+            list.Add(new OrderItemUpdatedEvent(cmd.RootId,
                 cmd.OrderItemId,
                 cmd.Ordinal,
                 cmd.ProductText,

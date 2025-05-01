@@ -1,4 +1,5 @@
 ﻿using System;
+
 using AbstractCqrs.Core.Command;
 using AbstractCqrs.Core.Domain;
 using AbstractCqrs.Core.Services;

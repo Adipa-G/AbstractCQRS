@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using AbstractCqrs.Core.Resolve;
 using AbstractCqrs.Sample.Domain.Order.Model;
 using AbstractCqrs.Sample.Domain.Order.View;
 using AbstractCqrs.Sample.Service.Order.View.Mappings;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace AbstractCqrs.Sample.Service.Order.View
@@ -39,26 +41,26 @@ namespace AbstractCqrs.Sample.Service.Order.View
                 return null;
 
             var model = new OrderModel()
-                   {
-                       Id = order.Id,
-                       CustomerNotes = order.CustomerNotes,
-                       Discount = order.Discount,
-                       OrderNo = order.OrderNo,
-                       Total = order.Total
-                   };
+            {
+                Id = order.Id,
+                CustomerNotes = order.CustomerNotes,
+                Discount = order.Discount,
+                OrderNo = order.OrderNo,
+                Total = order.Total
+            };
 
             foreach (var orderItem in order.Items)
             {
                 model.Items.Add(new OrderItemModel()
-                                {
-                                    Id = orderItem.Id,
-                                    Amount = orderItem.Amount,
-                                    Ordinal = orderItem.Ordinal,
-                                    ProductText = orderItem.ProductText,
-                                    Qty = orderItem.Qty,
-                                    ProductId = orderItem.ProductId,
-                                    QtyUnit = orderItem.QtyUnit
-                                });
+                {
+                    Id = orderItem.Id,
+                    Amount = orderItem.Amount,
+                    Ordinal = orderItem.Ordinal,
+                    ProductText = orderItem.ProductText,
+                    Qty = orderItem.Qty,
+                    ProductId = orderItem.ProductId,
+                    QtyUnit = orderItem.QtyUnit
+                });
             }
 
             return model;

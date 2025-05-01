@@ -1,5 +1,7 @@
 ﻿using System;
+
 using AbstractCqrs.Core.Resolve;
+
 using Serilog;
 
 namespace AbstractCqrs.Sample.Service.Log
