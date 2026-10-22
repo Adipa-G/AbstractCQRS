@@ -1,7 +1,7 @@
 ﻿using System.Net;
 
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace AbstractCqrs.Sample.WebApi.Combined
 {
@@ -9,18 +9,21 @@ namespace AbstractCqrs.Sample.WebApi.Combined
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args)
+        public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            return WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseKestrel(options =>
-                            {
-                                options.Listen(IPAddress.Loopback, 5000);
-                            })
-                .Build();
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder
+                        .UseStartup<Startup>()
+                        .UseKestrel(options =>
+                                    {
+                                        options.Listen(IPAddress.Loopback, 5000);
+                                    });
+                });
         }
     }
 }
